@@ -56,13 +56,13 @@ class Message_Core
 	 *
 	 * @return	string	Message to string
 	 */
-	public static function display()
+	public static function display($view = 'message/basic')
 	{
 		$msg = self::get();
 
 		if( $msg ){
 			self::clear();
-			return View::factory('message/basic')->set('message', $msg)->render();
+			return View::factory($view)->set('message', $msg)->render();
 		} else	{
 			return '';
 		}
